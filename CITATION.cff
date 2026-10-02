@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use englincontrol in your work, please cite it as below."
+title: "englincontrol: linear control theory from scratch, in Python"
+type: software
+authors:
+  - family-names: Wang
+    given-names: Yanwei
+    email: wangyanwei@gmail.com
+    orcid: "https://orcid.org/0000-0002-8488-9833"
+    website: "https://github.com/ktwyw"
+version: 0.1.0
+date-released: "2026-10-01"
+license: MIT
+repository-code: "https://github.com/ktwyw/englincontrol"
+keywords:
+  - control theory
+  - linear systems
+  - state space
+  - PID
+  - LQR
+  - Kalman filter
+  - discrete-time control
+  - system identification
+  - scientific computing
+  - engineering education
+abstract: >-
+  A from-scratch, validated NumPy implementation of linear control theory: models and realisations, time and
+  frequency response, stability tests, the root locus and the Nyquist criterion, PID and lead/lag design,
+  pole placement, observers, LQR, Kalman filtering and LQG, discretisation and digital design, robustness and
+  fundamental limitations, system identification, model reduction and MIMO basics, with ten example plants,
+  course data and a 20-notebook course with worked solutions.

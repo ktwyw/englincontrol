@@ -1,0 +1,67 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "englincontrol"
+version = "0.1.0"
+description = "Linear control theory from scratch: LTI models, time and frequency analysis, stability, classical and state-space design, discrete-time control, robustness, identification and MIMO basics, validated and taught in a 20-notebook course."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Yanwei Wang", email = "wangyanwei@gmail.com" }]
+keywords = ["control theory", "linear systems", "state space", "transfer functions", "PID", "LQR", "Kalman filter",
+            "discrete-time control", "scientific computing", "education"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Education",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Topic :: Education",
+]
+dependencies = ["numpy>=1.24"]
+
+[project.optional-dependencies]
+notebooks = ["scipy>=1.11", "matplotlib>=3.7", "pandas>=1.5", "jupyterlab>=4"]
+dev = ["scipy>=1.11", "control>=0.9", "pytest>=7", "ruff>=0.5", "matplotlib>=3.7", "pandas>=1.5", "nbformat>=5", "nbclient>=0.9", "ipykernel>=6"]
+
+[project.urls]
+Homepage = "https://github.com/ktwyw/englincontrol"
+Issues = "https://github.com/ktwyw/englincontrol/issues"
+Validation = "https://github.com/ktwyw/englincontrol/blob/main/docs/VALIDATION.md"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+englincontrol = ["data/*.csv"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "src/englincontrol"]
+addopts = "--doctest-modules"
+filterwarnings = ["error::FutureWarning", "error::DeprecationWarning:englincontrol.*"]
+
+[tool.ruff]
+line-length = 120
+extend-exclude = ["notebooks/*.ipynb", "solutions/*.ipynb"]
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = ["E731", "E402", "B905"]
+
+[tool.ruff.lint.per-file-ignores]
+"docs/*" = ["E501"]
+"tools/*" = ["E501", "E702"]
+"notebooks/*.py" = ["E501", "E702"]
+"solutions/*.py" = ["E501", "E702"]
+"tests/*" = ["E501"]
+"src/englincontrol/datasets.py" = ["E501"]
